@@ -8,6 +8,11 @@ public class Car {
     private String color;
     private float speed;
 
+//    public Car(){
+//        System.out.println("Car class getting init...");
+//    }
+
+
     public void setBrand(String brand){
         if(brand.length() < 3){
             throw new RuntimeException("Brand can not be less then 3 char");
