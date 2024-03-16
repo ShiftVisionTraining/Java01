@@ -8,13 +8,8 @@ public class SavingAccount extends Account{
     }
 
     @Override
-    public void withdraw(double amount) {
-        if( amount > 0){
-            balance -= amount;
-            balance -= FINE;
-        } else{
-            throw new RuntimeException("Withdraw amount can not be less then 0");
-        }
+    public double getFine() {
+        return 2.00;
     }
 
 

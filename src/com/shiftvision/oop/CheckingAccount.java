@@ -8,12 +8,8 @@ public class CheckingAccount extends Account{
     }
 
     @Override
-    public void withdraw(double amount) {
-        if( amount > 0){
-            balance -= amount;
-        } else{
-            throw new RuntimeException("Withdraw amount can not be less then 0");
-        }
+    public double getFine() {
+        return 0;
     }
 
 }

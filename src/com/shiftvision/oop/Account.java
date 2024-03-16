@@ -1,12 +1,11 @@
 package com.shiftvision.oop;
 
-public abstract class Account {
+public abstract class Account implements ATM, Bank {
     private String accountNumber;
     private String accountName;
     protected double balance;
     private double interestRate = 0;
 
-    protected final double FINE = 2.0;
 
     private Account(){
         System.out.println("Account class getting init...");
@@ -17,22 +16,13 @@ public abstract class Account {
         this.accountName = accountName;
     }
 
-
     public String getAccountNumber() {
         return accountNumber;
     }
 
-//    public void setAccountNumber(String accountNumber) {
-//        this.accountNumber = accountNumber;
-//    }
-
     public String getAccountName() {
         return accountName;
     }
-
-//    public void setAccountName(String accountName) {
-//        this.accountName = accountName;
-//    }
 
     public double getBalance() {
         return balance;
@@ -46,7 +36,27 @@ public abstract class Account {
         }
     }
 
-    public abstract void withdraw(double amount);
+    public  void withdraw(double amount){
+        if( amount > 0 && amount <= this.balance){
+            balance -= amount;
+            balance -= getFine();
+            System.out.println("Withdraw Amount: " + amount);
+        } else{
+            throw new RuntimeException("Withdraw amount can not be less then 0 or more then balance");
+        }
+    }
+    public  void withdraw(double amount, String message) {
+        this.withdraw(amount);
+
+        System.out.println("Withdraw Message: " + message);
+    }
+
+
+    public abstract double getFine();
+
+//    public  double getFine(){
+//        return 0;
+//    }
 
     @Override
     public String toString() {
@@ -55,7 +65,6 @@ public abstract class Account {
                 ", accountName='" + accountName + '\'' +
                 ", balance=" + balance +
                 ", interestRate=" + interestRate +
-                ", FINE=" + FINE +
                 '}';
     }
 }

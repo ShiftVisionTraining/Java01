@@ -57,7 +57,17 @@ public class Car {
         }
     }
 
+
     public String drive(){
+       return toString();
+    }
+
+    public void print(){
+        System.out.println("Brang: " + this.brand);
+    }
+
+    @Override
+    public String toString() {
         return "Car{" +
                 "brand='" + brand + '\'' +
                 ", numberOfWheel=" + numberOfWheel +
@@ -65,10 +75,5 @@ public class Car {
                 ", speed=" + speed +
                 '}';
     }
-
-    public void print(){
-        System.out.println("Brang: " + this.brand);
-    }
-
 
 }
