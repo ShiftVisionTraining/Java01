@@ -1,5 +1,7 @@
 package com.shiftvision.oop;
 
+import com.shiftvision.ShiftVisionException;
+
 public abstract class Account implements ATM, Bank {
     private String accountNumber;
     private String accountName;
@@ -9,6 +11,7 @@ public abstract class Account implements ATM, Bank {
 
     private Account(){
         System.out.println("Account class getting init...");
+
     }
     public Account(String accountNumber, String accountName){
         this();
@@ -32,7 +35,7 @@ public abstract class Account implements ATM, Bank {
         if( amount > 0){
             balance += amount;
         } else{
-            throw new RuntimeException("Deposit amount can not be less then 0");
+            throw new ShiftVisionException("Deposit amount can not be less then 0");
         }
     }
 
@@ -42,7 +45,7 @@ public abstract class Account implements ATM, Bank {
             balance -= getFine();
             System.out.println("Withdraw Amount: " + amount);
         } else{
-            throw new RuntimeException("Withdraw amount can not be less then 0 or more then balance");
+            throw new ShiftVisionException("Withdraw amount can not be less then 0 or more then balance");
         }
     }
     public  void withdraw(double amount, String message) {

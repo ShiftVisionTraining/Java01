@@ -20,14 +20,22 @@ public class MyBank {
 
     public static void main(String[] args) {
 
-        //ATM cardAccount = new SavingAccount("123456789","Iftekhar Ivaan");
+        try {
+            //ATM cardAccount = new SavingAccount("123456789","Iftekhar Ivaan");
 
-        ATM cardAccount = openAccount("Saving++","12345678","Iftekhar Ivaan");
-        ((Bank)cardAccount).deposit(2000);
-        cardAccount.withdraw(200);
-        System.out.println("Balance: " + ((Bank)cardAccount).getBalance());
-
-
+            ATM cardAccount = openAccount("Saving++", "12345678", "Iftekhar Ivaan");
+            if (cardAccount instanceof Bank) {
+                ((Bank) cardAccount).deposit(-2000);
+                //System.out.println("You can try deposit positive amount");
+            }
+            cardAccount.withdraw(200);
+            System.out.println("Balance: " + ((Bank) cardAccount).getBalance());
+            ((SavingPlusPlusAccount) cardAccount).print();
+        }
+        catch (Exception exp){
+            System.out.println(exp.toString());
+            System.out.println("You can try deposit positive amount");
+        }
 
 
 //        CheckingAccount checkingAccount1 = new CheckingAccount("123456789","Iftekhar Ivaan");
