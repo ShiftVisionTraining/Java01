@@ -7,6 +7,7 @@ public class MyBank {
 
         if(type.contentEquals("Checking")){
             account = new CheckingAccount(accountNumber,accountName);
+
         } else if(type.contentEquals("Saving")){
             account = new SavingAccount(accountNumber,accountName);
         } else if(type.contentEquals("Saving+")){
@@ -24,8 +25,8 @@ public class MyBank {
             //ATM cardAccount = new SavingAccount("123456789","Iftekhar Ivaan");
 
             ATM cardAccount = openAccount("Saving++", "12345678", "Iftekhar Ivaan");
-            if (cardAccount instanceof Bank) {
-                ((Bank) cardAccount).deposit(-2000);
+            if (cardAccount instanceof Account) {
+                ((Account) cardAccount).deposit(-2000);
                 //System.out.println("You can try deposit positive amount");
             }
             cardAccount.withdraw(200);

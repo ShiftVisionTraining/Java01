@@ -84,6 +84,11 @@ public class StringTestMain {
             System.out.println("Char: " + c + " Ascii: " + (int)c);
         }
 
+        for(int i = 0; i < nameCharArray.length; i++){
+            System.out.println("Char: " + nameCharArray[i] + " Ascii: " + (int)nameCharArray[i]);
+        }
+
+
         System.out.println(name.concat(" Hi"));
 
         regex();
